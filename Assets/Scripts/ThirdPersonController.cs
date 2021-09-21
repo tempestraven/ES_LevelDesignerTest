@@ -43,7 +43,9 @@ public class ThirdPersonController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, 100))
             {
-                move = (hit.point - transform.position).normalized;
+                move = hit.point - transform.position;
+                move.y = 0;
+                move = move.normalized;
             }
         }
         else
